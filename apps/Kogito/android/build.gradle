@@ -11,6 +11,9 @@ buildscript {
         ndkVersion = "20.1.5948944"
         kotlin_version= "1.6.0"
         kotlinVersion = "1.6.0"
+        MYAPP_UPLOAD_STORE_PASSWORD=$System.env.MYAPP_UPLOAD_STORE_PASSWORD
+        MYAPP_UPLOAD_KEY_PASSWORD=$System.env.MYAPP_UPLOAD_KEY_PASSWORD
+        print "xxx: $System.env.MYAPP_UPLOAD_KEY_PASSWORD"
     }
     repositories {
         google()

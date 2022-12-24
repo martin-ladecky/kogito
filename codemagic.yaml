@@ -8,7 +8,7 @@ workflows:
 #          android_signing:
 #            - keystore_reference
           groups:
-             - devel
+             - production
 #            - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS <-- Put your google-services.json)
           vars:
             PACKAGE_NAME: "io.kogito.sample.reactnative" # <-- Put your package name here e.g. com.domain.myapp

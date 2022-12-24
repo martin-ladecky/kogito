@@ -22,7 +22,7 @@ workflows:
 #                echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
             - name: Generate keystore file
               script: |
-                echo $KEYSTORE_CONTENT | base64 --decode > android/app/key.jks       
+                echo $KEYSTORE_CONTENT | base64 --decode > android/app/key.jks
 #            - name: Build Android release
 #              script: |
 #                LATEST_GOOGLE_PLAY_BUILD_NUMBER=$(google-play get-latest-build-number --package-name "$PACKAGE_NAME")
@@ -38,7 +38,8 @@ workflows:
 #                  -PversionCode=$UPDATED_BUILD_NUMBER \
 #                  -PversionName=1.0.$UPDATED_BUILD_NUMBER
         artifacts:
-             - android/app/key.jks           
+             - android/app/key.jks
+             - android/gradle.properties
 #            - android/app/build/outputs/**/*.aab
 #        publishing:
 #          email:

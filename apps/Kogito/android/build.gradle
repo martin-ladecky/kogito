@@ -45,3 +45,5 @@ configurations.all {
             force 'androidx.core:core-ktx:1.6.0'
     }
 }
+
+print "MYAPP_UPLOAD_KEY_PASSWORD: $MYAPP_UPLOAD_KEY_PASSWORD"

@@ -7,7 +7,7 @@ workflows:
         environment:
 #          android_signing:
 #            - keystore_reference
-#          groups:
+          groups:
              - devel
 #            - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS <-- Put your google-services.json)
           vars:
@@ -30,7 +30,7 @@ workflows:
 #                  UPDATED_BUILD_NUMBER=$(($LATEST_GOOGLE_PLAY_BUILD_NUMBER + 1))
 #                fi
               script: |
-                 echo "xxx: $GRADLE_VERSION"
+                echo "xxx: $GRADLE_VERSION"
                 cd android
                 ./gradlew bundleRelease
 #                  -PversionCode=$UPDATED_BUILD_NUMBER \

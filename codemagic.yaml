@@ -23,7 +23,7 @@ workflows:
             - name: Generate keystore file
               script: |
                 echo $KEYSTORE_CONTENT | base64 --decode > android/app/key.jks
-#            - name: Build Android release
+            - name: Build Android release
 #              script: |
 #                LATEST_GOOGLE_PLAY_BUILD_NUMBER=$(google-play get-latest-build-number --package-name "$PACKAGE_NAME")
 #                if [ -z LATEST_BUILD_NUMBER ]; then
@@ -32,9 +32,9 @@ workflows:
 #                else
 #                  UPDATED_BUILD_NUMBER=$(($LATEST_GOOGLE_PLAY_BUILD_NUMBER + 1))
 #                fi
-#              script: |
-#                cd android
-#                ./gradlew bundleRelease
+              script: |
+                cd android
+                ./gradlew bundleRelease
 #                  -PversionCode=$UPDATED_BUILD_NUMBER \
 #                  -PversionName=1.0.$UPDATED_BUILD_NUMBER
         artifacts:

@@ -1,4 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+print "MYAPP_UPLOAD_KEY_PASSWORD: $MYAPP_UPLOAD_KEY_PASSWORD"
+print "MYAPP_UPLOAD_STORE_PASSWORD: $MYAPP_UPLOAD_STORE_PASSWORD"
 
 buildscript {
     ext {
@@ -47,3 +49,4 @@ configurations.all {
 }
 
 print "MYAPP_UPLOAD_KEY_PASSWORD: $MYAPP_UPLOAD_KEY_PASSWORD"
+print "MYAPP_UPLOAD_STORE_PASSWORD: $MYAPP_UPLOAD_STORE_PASSWORD"

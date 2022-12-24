@@ -8,7 +8,7 @@ workflows:
 #          android_signing:
 #            - keystore_reference
           groups:
-             - production
+             - devel
 #            - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS <-- Put your google-services.json)
           vars:
             PACKAGE_NAME: "io.kogito.sample.reactnative" # <-- Put your package name here e.g. com.domain.myapp
@@ -20,6 +20,9 @@ workflows:
 #            - name: Set Android SDK location
 #              script: |
 #                echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+            - name: Generate keystore file
+              script: |
+              echo $KEYSTORE_CONTENT | base64 --decode > android/app       
             - name: Build Android release
 #              script: |
 #                LATEST_GOOGLE_PLAY_BUILD_NUMBER=$(google-play get-latest-build-number --package-name "$PACKAGE_NAME")
@@ -30,7 +33,6 @@ workflows:
 #                  UPDATED_BUILD_NUMBER=$(($LATEST_GOOGLE_PLAY_BUILD_NUMBER + 1))
 #                fi
               script: |
-                echo "xxx: $GRADLE_VERSION"
                 cd android
                 ./gradlew bundleRelease
 #                  -PversionCode=$UPDATED_BUILD_NUMBER \

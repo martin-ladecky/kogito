@@ -37,6 +37,7 @@ allprojects {
         jcenter()
         maven { url 'https://www.jitpack.io' }
     }
+    print "yyyy: $System.env.GRADLE_VERSION"
 }
 
 configurations.all {

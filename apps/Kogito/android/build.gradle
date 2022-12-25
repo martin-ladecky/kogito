@@ -38,14 +38,11 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://www.jitpack.io' }
-        println "yyyy: $System.env.GRADLE_VERSION"
         println "yyyy: $System.env.MYAPP_UPLOAD_STORE_PASSWORD"
-
+        MYAPP_UPLOAD_KEY_PASSWORD=$System.env.MYAPP_UPLOAD_KEY_PASSWORD
+        MYAPP_UPLOAD_STORE_PASSWORD=$System.env.MYAPP_UPLOAD_STORE_PASSWORD
         println "MYAPP_UPLOAD_KEY_PASSWORD: $MYAPP_UPLOAD_KEY_PASSWORD"
         println "MYAPP_UPLOAD_STORE_PASSWORD: $MYAPP_UPLOAD_STORE_PASSWORD"
-        println "xxx> System.getProperty('MYAPP_UPLOAD_STORE_PASSWORD')"
-        println System.getProperty('MYAPP_UPLOAD_STORE_PASSWORD')
-        println providers.systemProperty('MYAPP_UPLOAD_STORE_PASSWORD').get()
 
     }
 }

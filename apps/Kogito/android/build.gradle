@@ -49,6 +49,7 @@ configurations.all {
 }
 
 println "xxx> System.getProperty('MYAPP_UPLOAD_STORE_PASSWORD')"
+println System.getProperty('MYAPP_UPLOAD_STORE_PASSWORD')
 
 //MYAPP_UPLOAD_STORE_PASSWORD=$System.env.MYAPP_UPLOAD_STORE_PASSWORD
 //MYAPP_UPLOAD_KEY_PASSWORD=$System.env.MYAPP_UPLOAD_KEY_PASSWORD

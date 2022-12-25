@@ -38,12 +38,8 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://www.jitpack.io' }
-        println "yyyy: $System.env.MYAPP_UPLOAD_STORE_PASSWORD"
         MYAPP_UPLOAD_KEY_PASSWORD="$System.env.MYAPP_UPLOAD_KEY_PASSWORD"
         MYAPP_UPLOAD_STORE_PASSWORD="$System.env.MYAPP_UPLOAD_STORE_PASSWORD"
-        println "MYAPP_UPLOAD_KEY_PASSWORD: $MYAPP_UPLOAD_KEY_PASSWORD"
-        println "MYAPP_UPLOAD_STORE_PASSWORD: $MYAPP_UPLOAD_STORE_PASSWORD"
-
     }
 }
 
@@ -53,10 +49,3 @@ configurations.all {
             force 'androidx.core:core-ktx:1.6.0'
     }
 }
-
-//MYAPP_UPLOAD_STORE_PASSWORD=$System.env.MYAPP_UPLOAD_STORE_PASSWORD
-//MYAPP_UPLOAD_KEY_PASSWORD=$System.env.MYAPP_UPLOAD_KEY_PASSWORD
-//println "xxx: $System.env.MYAPP_UPLOAD_KEY_PASSWORD"
-
-println "MYAPP_UPLOAD_KEY_PASSWORD: $MYAPP_UPLOAD_KEY_PASSWORD"
-println "MYAPP_UPLOAD_STORE_PASSWORD: $MYAPP_UPLOAD_STORE_PASSWORD"

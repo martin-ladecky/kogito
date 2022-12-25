@@ -38,6 +38,9 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://www.jitpack.io' }
+        println "yyyy: $System.env.GRADLE_VERSION"
+        println "yyyy: $System.env.MYAPP_UPLOAD_STORE_PASSWORD"
+
     }
 }
 

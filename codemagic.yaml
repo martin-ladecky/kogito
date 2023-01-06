@@ -11,7 +11,7 @@ workflows:
              - devel
              - google_credentials # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS <-- Put your google-services.json)
           vars:
-            PACKAGE_NAME: "io.kogito.sample.reactnative" # <-- Put your package name here e.g. com.domain.myapp
+              PACKAGE_NAME: "cz.nudz.kogito" # <-- Put your package name here e.g. com.domain.myapp
           node: v16.11.1
         scripts:
             - name: Install npm dependencies

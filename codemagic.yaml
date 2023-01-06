@@ -26,9 +26,6 @@ workflows:
             - name: Build Android release
               script: |
                 LATEST_GOOGLE_PLAY_BUILD_NUMBER=$(google-play get-latest-build-number --package-name "$PACKAGE_NAME")
-                echo "xx: $LATEST_GOOGLE_PLAY_BUILD_NUMBER"
-                echo "xxx: $LATEST_BUILD_NUMBER"
-                echo "BUILD_NUMBER: $BUILD_NUMBER"
                 if [ -z LATEST_BUILD_NUMBER ]; then
                   # fallback in case no build number was found from google play. Alternatively, you can `exit 1` to fail the build
                   UPDATED_BUILD_NUMBER=$BUILD_NUMBER
@@ -36,13 +33,13 @@ workflows:
                   UPDATED_BUILD_NUMBER=$(($LATEST_GOOGLE_PLAY_BUILD_NUMBER + 1))
                 fi
                 echo "UPDATED_BUILD_NUMBER is $UPDATED_BUILD_NUMBER"
-#              script: |
-#                cd android
-#                ./gradlew bundleRelease
-#                  -PversionCode=$UPDATED_BUILD_NUMBER \
-#                  -PversionName=1.0.$UPDATED_BUILD_NUMBER
-#        artifacts:
-#             - android/app/build/outputs/**/*.aab
+
+                cd android
+                ./gradlew bundleRelease
+                  -PversionCode=$UPDATED_BUILD_NUMBER \
+                  -PversionName=1.0.$UPDATED_BUILD_NUMBER
+        artifacts:
+             - android/app/build/outputs/**/*.aab
 #        publishing:
 #          email:
 #            recipients:

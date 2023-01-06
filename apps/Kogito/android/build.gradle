@@ -37,8 +37,8 @@ allprojects {
         maven { url 'https://www.jitpack.io' }
         MYAPP_UPLOAD_KEY_PASSWORD="$System.env.MYAPP_UPLOAD_KEY_PASSWORD"
         MYAPP_UPLOAD_STORE_PASSWORD="$System.env.MYAPP_UPLOAD_STORE_PASSWORD"
-        println findProperty("versionCode")
-        versionCode="$System.env.versionCode"
+        versionCode=findProperty("versionCode")
+        versionName=findProperty("versionName")
     }
 }
 

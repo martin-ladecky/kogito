@@ -35,7 +35,7 @@ workflows:
                 echo "UPDATED_BUILD_NUMBER is $UPDATED_BUILD_NUMBER"
 
                 cd android
-                ./gradlew bundleRelease
+                ./gradlew bundleRelease \
                   -PversionCode=$UPDATED_BUILD_NUMBER \
                   -PversionName=1.0.$UPDATED_BUILD_NUMBER
         artifacts:

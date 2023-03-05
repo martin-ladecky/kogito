@@ -51,6 +51,7 @@ workflows:
 #            credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
 #            track: internal   # Any default or custom track that is not in ‘draft’ status
     react-native-ios:
+        working_directory: apps/Kogito
         name: React Native iOS
         max_build_duration: 120
         instance_type: mac_mini_m1

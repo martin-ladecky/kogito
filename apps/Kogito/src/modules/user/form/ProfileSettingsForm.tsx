@@ -1,19 +1,20 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {useForm, Controller} from 'react-hook-form';
 import Button from '../../../components/primitives/Button';
 import TextInput from '../../../components/form/TextInput';
 import {useMeQuery} from '../useMeQuery';
-import {EditProfileInput, useEditProfile} from '../useEditProfile';
+import {useEditProfile} from '../useEditProfile';
+import {EditProfileInput} from '../../../../gql/__generated__/graphql';
 
 type ProfileSettingsForm = {
   onSuccess?: () => void;
 };
 
-const ProfileSettingsForm: FC<ProfileSettingsForm> = ({
+const ProfileSettingsForm: React.FC<ProfileSettingsForm> = ({
   onSuccess = () => {},
 }) => {
   const {me} = useMeQuery();
-  const {control, handleSubmit } = useForm({
+  const {control, handleSubmit} = useForm({
     defaultValues: {
       firstName: me?.firstName || '',
       lastName: me?.lastName || '',
@@ -40,12 +41,12 @@ const ProfileSettingsForm: FC<ProfileSettingsForm> = ({
     <>
       <Controller
         control={control}
-        render={({onChange, onBlur, value}) => (
+        render={({field: {onChange, onBlur, value}}) => (
           <TextInput
             placeholder="Jméno"
             onBlur={onBlur}
             style={{marginTop: 16, marginBottom: 6}}
-            onChangeText={(value) => onChange(value)}
+            onChangeText={value => onChange(value)}
             value={value}
           />
         )}
@@ -54,12 +55,12 @@ const ProfileSettingsForm: FC<ProfileSettingsForm> = ({
       />
       <Controller
         control={control}
-        render={({onChange, onBlur, value}) => (
+        render={({field: {onChange, onBlur, value}}) => (
           <TextInput
             placeholder="Příjmení"
             onBlur={onBlur}
             style={{marginTop: 6, marginBottom: 12}}
-            onChangeText={(value) => onChange(value)}
+            onChangeText={value => onChange(value)}
             value={value}
           />
         )}

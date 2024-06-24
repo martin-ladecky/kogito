@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import {variant} from 'styled-system';
-
-const boxBackgroundColor = (props) => {
+type Props = {isLocked: boolean; isCompleted: boolean; img: boolean};
+const boxBackgroundColor = (props: Props) => {
   if (props.isLocked) {
     return '#fff';
   }
@@ -18,7 +18,7 @@ const S = {
     margin-bottom: 5px;
   `,
   Wrapper: styled.View``,
-  Box: styled.View`
+  Box: styled.View<Props>`
     flex-direction: row;
     align-items: center;
     min-height: 90px;
@@ -33,7 +33,7 @@ const S = {
         },
       },
     })};
-    background-color: ${(props) => boxBackgroundColor(props)};
+    background-color: ${props => boxBackgroundColor(props)};
   `,
   Image: styled.Image`
     flex: 0 0 72px;

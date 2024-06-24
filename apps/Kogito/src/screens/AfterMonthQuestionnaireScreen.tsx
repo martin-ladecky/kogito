@@ -1,25 +1,22 @@
-import React, {FC, useCallback} from 'react';
-import {SafeAreaView, ScrollView, View} from 'react-native';
-import GradientBackground from '../components/primitives/GradientBackground';
+import React, {useCallback} from 'react';
+import {ScrollView, View} from 'react-native';
 import MainContainer from '../components/container/MainContainer';
 import Text from '../components/primitives/Text';
 import QuestionnaireWidget from '../modules/questionnaire/components/QuestionnaireWidget';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useFocusEffect} from '@react-navigation/native';
 import Button from '../components/primitives/Button';
 import MainContainerWrapper from '../components/container/MainContainerWrapper';
 import {useMeQuery} from '../modules/user/useMeQuery';
 import {useAfterMonthQuestionnaireQuery} from '../modules/questionnaire/useAfterMonthQuestionnaireQuery';
 import {useSelectJourney} from '../modules/content/useSelectJourney';
 import ColoredSafeAreaView from '../components/primitives/ColoredSafeAreaView';
+import {AppScreen} from '../navigation/Navigation';
 
-const AvailableQuestionnairesScreen: FC = () => {
-  const navigation = useNavigation();
-  const {
-    haveToChooseJourney,
-    questionnaire,
-    loading,
-    refetch,
-  } = useAfterMonthQuestionnaireQuery();
+const AfterMonthQuestionnaireScreen: AppScreen<'AfterMonthQuestionnaire'> = ({
+  navigation,
+}) => {
+  const {haveToChooseJourney, questionnaire, loading, refetch} =
+    useAfterMonthQuestionnaireQuery();
   const {selectJourneyMutation} = useSelectJourney();
   const {} = useMeQuery();
 
@@ -52,14 +49,14 @@ const AvailableQuestionnairesScreen: FC = () => {
           <MainContainer align="left" style={{marginBottom: 48}}>
             <Text textVariant="header">Dobrý den,</Text>
 
-            {questionnaire.occasion === 2 && (
+            {questionnaire?.occasion === 2 && (
               <Text>
                 již je to měsíc od Vašeho prvního přihlášení do Kogito . Prosíme
                 Vás o druhé vyplnění dotazníků, tak abychom mohli určit, jak
                 aplikace pomáhá.
               </Text>
             )}
-            {questionnaire.occasion === 1 && (
+            {questionnaire?.occasion === 1 && (
               <Text>
                 již je to měsíc od Vašeho prvního přihlášení do Kogito:).
                 Prosíme Vás o druhé vyplnění dotazníků. Díky tomu budeme schopni
@@ -68,9 +65,9 @@ const AvailableQuestionnairesScreen: FC = () => {
                 doufáme, že se Vám obsah bude líbit.
               </Text>
             )}
-            {questionnaire.occasion === 2 && (
+            {questionnaire?.occasion === 2 && (
               <>
-                <Text></Text>
+                <Text />
                 <Text>Moc děkujeme!</Text>
               </>
             )}
@@ -109,4 +106,4 @@ const AvailableQuestionnairesScreen: FC = () => {
   );
 };
 
-export default AvailableQuestionnairesScreen;
+export default AfterMonthQuestionnaireScreen;

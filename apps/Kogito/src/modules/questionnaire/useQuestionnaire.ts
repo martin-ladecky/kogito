@@ -1,10 +1,7 @@
-import {
-  Question,
-  useQuestionnaireDetail,
-  UserAnswer,
-} from './useQuestionnaireDetail';
+import {useQuestionnaireDetail} from './useQuestionnaireDetail';
 import {useEffect, useState} from 'react';
 import {useUpdateQuestionnaire} from './useUpdateQuestionnaire';
+import {Question, UserAnswer} from '../../../gql/__generated__/graphql';
 
 export const useQuestionnaire = (id: string) => {
   const {questionnaire} = useQuestionnaireDetail(id);
@@ -43,7 +40,7 @@ export const useQuestionnaire = (id: string) => {
 
       if (actualQuestion && userAnswers) {
         const haveAnswer = userAnswers.find(
-          (answer) => answer.questionId === actualQuestion.id,
+          answer => answer.questionId === actualQuestion.id,
         );
 
         setActualAnswer(haveAnswer ? haveAnswer.answerIndex : null);
@@ -82,7 +79,7 @@ export const useQuestionnaire = (id: string) => {
       } else if (questions.length) {
         next = questions[0];
 
-        const prepare = questionnaire.answers.map((answer) => {
+        const prepare = questionnaire.answers.map(answer => {
           return {
             answerIndex: answer.answerIndex,
             questionId: answer.questionId,
@@ -107,7 +104,7 @@ export const useQuestionnaire = (id: string) => {
 
       const answers = [...userAnswers];
 
-      const answer = answers.find((a) => a.questionId === actualQuestion.id);
+      const answer = answers.find(a => a.questionId === actualQuestion.id);
 
       if (answer) {
         const answerIndex = answers.indexOf(answer);
